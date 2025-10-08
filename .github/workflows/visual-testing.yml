@@ -19,9 +19,22 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          
+      - name: Configure npm for stability
+        run: |
+          npm config set fund false
+          npm config set audit-level moderate
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean and install dependencies
+        run: |
+          # Remove existing files to avoid npm optional dependencies bug
+          rm -rf node_modules package-lock.json
+          npm install
+          
+      - name: Verify Rollup installation
+        run: |
+          # Ensure Rollup native binaries are properly installed
+          npm list rollup || npm install rollup --force
 
       - name: Build application
         run: npm run build
