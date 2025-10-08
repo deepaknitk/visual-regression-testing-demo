@@ -7,5 +7,13 @@
   },
   "discovery": {
     "allowedHostnames": ["localhost"]
-  }
+  },
+  "agent": {
+    "asset-discovery": {
+      "request-headers": {},
+      "authorization": null
+    }
+  },
+  "defer-uploads": true,
+  "partial": false
 }

@@ -171,7 +171,7 @@ const Dashboard = () => {
         <div className="mt-8 bg-white overflow-hidden shadow rounded-lg" data-testid="performance-metrics">
           <div className="p-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
-              Performance Metrics
+              Performance Metrics .... master update
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="text-center" data-testid="metric-response-time">
