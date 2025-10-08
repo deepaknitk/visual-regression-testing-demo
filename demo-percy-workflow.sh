@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Demo script to show Percy workflow
+echo "🎭 Percy Visual Regression Workflow Demo"
+echo "========================================"
+
+echo ""
+echo "📅 Timeline of Events:"
+echo ""
+
+echo "1️⃣ INITIAL MASTER PUSH"
+echo "   ├── Percy creates initial baseline screenshots"
+echo "   ├── 10 screenshots saved as 'master' baseline"
+echo "   └── ✅ Master baseline established"
+
+echo ""
+echo "2️⃣ FEATURE BRANCH CREATION"
+echo "   ├── git checkout -b feature/ui-changes"
+echo "   ├── Make visual changes (colors, layout, text)"
+echo "   └── git push origin feature/ui-changes"
+
+echo ""
+echo "3️⃣ PULL REQUEST CREATION"
+echo "   ├── GitHub Action triggers automatically"
+echo "   ├── Percy takes new screenshots"
+echo "   ├── Compares against master baseline"
+echo "   └── Percy dashboard shows visual diffs"
+
+echo ""
+echo "📊 Percy Dashboard View:"
+echo "   ┌─────────────────────────────────────────┐"
+echo "   │ Build: feature/ui-changes               │"
+echo "   │ Base: master                            │"
+echo "   │                                         │"
+echo "   │ 📸 Screenshots: 10                      │"
+echo "   │ 🔍 Changes detected: 3                  │"
+echo "   │ ✅ No changes: 7                        │"
+echo "   │                                         │"
+echo "   │ Changes:                                │"
+echo "   │ • Home Page - Button color changed     │"
+echo "   │ • Users Page - Table header modified   │"
+echo "   │ • Settings - New theme option added    │"
+echo "   └─────────────────────────────────────────┘"
+
+echo ""
+echo "4️⃣ VISUAL REVIEW PROCESS"
+echo "   ├── Team reviews diffs in Percy dashboard"
+echo "   ├── Side-by-side comparison (before/after)"
+echo "   ├── Approve intentional changes"
+echo "   └── Request fixes for regressions"
+
+echo ""
+echo "5️⃣ MERGE TO MASTER"
+echo "   ├── PR approved and merged"
+echo "   ├── Percy updates master baseline"
+echo "   ├── New screenshots become reference"
+echo "   └── ✅ Ready for next PR cycle"
+
+echo ""
+echo "🔄 CONTINUOUS CYCLE"
+echo "   └── Future PRs compare against updated baseline"
+
+echo ""
+echo "🎯 Key Benefits:"
+echo "   • Catch unintended visual regressions"
+echo "   • Document intentional design changes"
+echo "   • Maintain visual consistency across team"
+echo "   • Automated visual testing in CI/CD"
+
+echo ""
+echo "🚀 Ready to test? Run: PERCY_BRANCH=local npm run test:visual:optimized"
