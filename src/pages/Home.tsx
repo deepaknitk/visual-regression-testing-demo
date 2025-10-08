@@ -1,7 +1,11 @@
+// Home Page Component - Main landing page for visual regression testing demo
+// This component showcases various UI elements and states for Percy testing
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Main container with responsive padding */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        {/* Hero section with centered content */}
         <div className="text-center">
           <div className="mb-4">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-200" data-testid="build-status">
@@ -23,7 +27,9 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Feature cards section - displays main application capabilities */}
         <div className="mt-16">
+          {/* Responsive grid layout for feature cards */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white overflow-hidden shadow-lg rounded-xl border-l-4 border-purple-500 hover:shadow-xl transition-shadow duration-300" data-testid="feature-card-1">
               <div className="p-6">
@@ -93,7 +99,9 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Information section - provides details about testing capabilities */}
         <div className="mt-16 bg-white shadow overflow-hidden sm:rounded-md" data-testid="info-section">
+          {/* Content padding for consistent spacing */}
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
