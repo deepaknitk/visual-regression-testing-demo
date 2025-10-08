@@ -57,16 +57,3 @@ jobs:
           PERCY_PULL_REQUEST: ${{ github.event.number }}
           CYPRESS_baseUrl: http://localhost:4173
 
-  # Additional job for PR baseline comparison
-  percy-finalize:
-    runs-on: ubuntu-latest
-    needs: visual-tests
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Percy finalize
-        run: |
-          echo "Visual regression tests completed"
-          echo "Check Percy dashboard for comparison results"
-          echo "PR: ${{ github.event.pull_request.html_url }}"
-          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
-          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
