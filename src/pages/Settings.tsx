@@ -13,23 +13,31 @@ const Settings = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-gray-900" data-testid="settings-title">
-            Settings
+        <div className="mb-8 text-center">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-medium mb-4">
+            ⚙️ Configuration Center
+          </div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent" data-testid="settings-title">
+            Advanced Settings - Modified
           </h1>
-          <p className="mt-2 text-sm text-gray-700" data-testid="settings-description">
-            Customize your application preferences and behavior.
+          <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="settings-description">
+            🎨 Personalize your experience with our comprehensive configuration options
           </p>
         </div>
 
         {/* Appearance Settings */}
-        <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-8" data-testid="appearance-settings">
-          <div className="px-4 py-5 sm:p-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 mb-6">
-              Appearance
-            </h3>
+        <div className="bg-white shadow-xl overflow-hidden sm:rounded-xl mb-8 border-l-4 border-purple-500" data-testid="appearance-settings">
+          <div className="px-6 py-7 sm:p-8">
+            <div className="flex items-center mb-6">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                <span className="text-white text-lg">🎨</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900">
+                Visual Appearance - Changed
+              </h3>
+            </div>
             
             <div className="space-y-6">
               <div>
@@ -226,20 +234,20 @@ const Settings = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-end space-x-4" data-testid="settings-actions">
+        <div className="flex justify-center space-x-6 bg-white rounded-xl shadow-lg p-6" data-testid="settings-actions">
           <button
             type="button"
-            className="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+            className="bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white px-8 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
             data-testid="reset-settings-button"
           >
-            Reset to Defaults
+            🔄 Reset to Defaults
           </button>
           <button
             type="button"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             data-testid="save-settings-button"
           >
-            Save Settings
+            💾 Save Settings
           </button>
         </div>
       </div>
