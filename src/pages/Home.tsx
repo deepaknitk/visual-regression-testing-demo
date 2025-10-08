@@ -3,11 +3,11 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl" data-testid="home-title">
-            Welcome to Visual Test App
+          <h1 className="text-4xl font-extrabold text-purple-900 sm:text-5xl" data-testid="home-title">
+            🚀 Welcome to Visual Regression Demo
           </h1>
-          <p className="mt-4 text-xl text-gray-500" data-testid="home-description">
-            A comprehensive React application for testing visual regression with Percy and Cypress
+          <p className="mt-4 text-xl text-purple-600" data-testid="home-description">
+            Experience the power of automated visual testing with Percy, Cypress, and React
           </p>
         </div>
 
@@ -17,7 +17,7 @@ const Home = () => {
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-sm font-semibold">1</span>
                     </div>
                   </div>
@@ -39,7 +39,7 @@ const Home = () => {
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-sm font-semibold">2</span>
                     </div>
                   </div>
@@ -61,7 +61,7 @@ const Home = () => {
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-sm font-semibold">3</span>
                     </div>
                   </div>
@@ -92,13 +92,13 @@ const Home = () => {
               </p>
             </div>
             <div className="mt-5">
-              <div className="rounded-md bg-blue-50 p-4">
+              <div className="rounded-md bg-purple-50 p-4">
                 <div className="flex">
                   <div className="ml-3">
-                    <h3 className="text-sm font-medium text-blue-800">
-                      Features included:
+                    <h3 className="text-sm font-medium text-purple-800">
+                      🎯 Features included:  
                     </h3>
-                    <div className="mt-2 text-sm text-blue-700">
+                    <div className="mt-2 text-sm text-purple-700">
                       <ul className="list-disc pl-5 space-y-1">
                         <li>User management interface</li>
                         <li>Dashboard with statistics</li>

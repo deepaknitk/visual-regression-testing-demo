@@ -3,8 +3,8 @@ import { users, type User } from '../data/users';
 const Users = () => {
   const getStatusBadge = (status: User['status']) => {
     return status === 'active' 
-      ? 'bg-green-100 text-green-800' 
-      : 'bg-red-100 text-red-800';
+      ? 'bg-emerald-100 text-emerald-800' 
+      : 'bg-orange-100 text-orange-800';
   };
 
   return (
@@ -12,18 +12,18 @@ const Users = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
-            <h1 className="text-2xl font-semibold text-gray-900" data-testid="users-title">Users</h1>
-            <p className="mt-2 text-sm text-gray-700" data-testid="users-description">
-              A list of all users in the system including their name, role, email and status.
+            <h1 className="text-2xl font-semibold text-indigo-900" data-testid="users-title">👥 Team Members</h1>
+            <p className="mt-2 text-sm text-indigo-600" data-testid="users-description">
+              Manage your team members, roles, and access permissions with ease.
             </p>
           </div>
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:w-auto"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
               data-testid="add-user-button"
             >
-              Add user
+              ➕ Add Team Member
             </button>
           </div>
         </div>
