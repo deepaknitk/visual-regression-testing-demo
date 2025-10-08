@@ -47,10 +47,14 @@ jobs:
       - name: Wait for server
         run: npx wait-on http://localhost:4173 --timeout 60000
 
-      - name: Run Cypress tests with Percy (Optimized)
+      - name: Run Cypress tests with Percy (Smart Baselines)
         run: npx percy exec -- npx cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: ${{ github.head_ref || github.ref_name }}
+          PERCY_TARGET_BRANCH: main
+          PERCY_COMMIT: ${{ github.sha }}
+          PERCY_PULL_REQUEST: ${{ github.event.number }}
           CYPRESS_baseUrl: http://localhost:4173
 
   # Additional job for PR baseline comparison

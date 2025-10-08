@@ -1,0 +1,99 @@
+name: Smart Visual Regression Testing
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  visual-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history for better baseline detection
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Configure npm for stability
+        run: |
+          npm config set fund false
+          npm config set audit-level moderate
+
+      - name: Clean and install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+          
+      - name: Verify Rollup installation
+        run: |
+          npm list rollup || npm install rollup --force
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm run preview &
+        env:
+          CI: true
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:4173 --timeout 60000
+
+      - name: Determine Percy baseline strategy
+        id: percy-strategy
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # Check if this PR has previous approved Percy builds
+            echo "PERCY_TARGET_BRANCH=main" >> $GITHUB_OUTPUT
+            echo "PERCY_BRANCH=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+            
+            # Create unique build name for incremental comparisons
+            COMMIT_COUNT=$(git rev-list --count origin/main..HEAD)
+            echo "PERCY_BUILD_NAME=PR-${{ github.event.number }}-commit-${COMMIT_COUNT}" >> $GITHUB_OUTPUT
+          else
+            echo "PERCY_TARGET_BRANCH=main" >> $GITHUB_OUTPUT
+            echo "PERCY_BRANCH=main" >> $GITHUB_OUTPUT
+            echo "PERCY_BUILD_NAME=main-baseline" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Cypress tests with Smart Percy
+        run: npx percy exec -- npx cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: ${{ steps.percy-strategy.outputs.PERCY_BRANCH }}
+          PERCY_TARGET_BRANCH: ${{ steps.percy-strategy.outputs.PERCY_TARGET_BRANCH }}
+          PERCY_BUILD_NAME: ${{ steps.percy-strategy.outputs.PERCY_BUILD_NAME }}
+          PERCY_COMMIT: ${{ github.sha }}
+          CYPRESS_baseUrl: http://localhost:4173
+          # Enable Percy's smart diffing
+          PERCY_ENABLE_LAYOUT: true
+          PERCY_DEFAULT_WIDTHS: 1280,375
+
+  percy-status:
+    runs-on: ubuntu-latest
+    needs: visual-tests
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Percy Status Report
+        run: |
+          echo "🎯 Percy Visual Testing Complete"
+          echo "================================"
+          echo "PR: ${{ github.event.pull_request.html_url }}"
+          echo "Branch: ${{ github.head_ref }}"
+          echo "Commits in PR: $(git rev-list --count origin/main..HEAD)"
+          echo ""
+          echo "💡 Smart Baseline Strategy:"
+          echo "• First commit in PR: Compare against main baseline"
+          echo "• Subsequent commits: Compare against previous approved state"
+          echo "• Approved changes become intermediate baselines"
+          echo ""
+          echo "📊 Check Percy Dashboard for results"
