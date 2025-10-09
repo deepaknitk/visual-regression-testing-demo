@@ -17,7 +17,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-white text-xl font-bold">Visual Test App</h1>
+              <h1 className="text-white text-xl font-bold">Visual Test App - update from commit 1</h1>
             </div>
           </div>
           <div className="hidden md:block">
