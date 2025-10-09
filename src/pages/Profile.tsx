@@ -12,7 +12,7 @@ const Profile = () => {
             👤 User Profile Hub
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent" data-testid="profile-title">
-            My Profile Dashboard - update from commit 1
+            My Profile Dashboard - update from commit 2
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="profile-description">
             🌟 Customize your personal information and account preferences with style
