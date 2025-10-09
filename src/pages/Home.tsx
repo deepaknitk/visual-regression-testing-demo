@@ -13,7 +13,7 @@ const Home = () => {
             </span>
           </div>
           <h1 className="text-5xl font-extrabold text-gradient bg-gradient-to-r from-purple-900 to-pink-600 bg-clip-text text-transparent sm:text-6xl" data-testid="home-title">
-            🚀 Welcome to Visual Regression Demo v2.1
+            🚀 Welcome to Visual Regression Demo v2.1 - update from commit 1
           </h1>
           <p className="mt-6 text-2xl text-purple-600 font-medium" data-testid="home-description">
             ✨ Experience the power of automated visual testing with Percy, Cypress, and React

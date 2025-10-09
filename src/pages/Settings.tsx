@@ -20,7 +20,7 @@ const Settings = () => {
             ⚙️ Configuration Center
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent" data-testid="settings-title">
-            Advanced Settings - Modified
+            Advanced Settings - update from commit 1
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="settings-description">
             🎨 Personalize your experience with our comprehensive configuration options
@@ -35,13 +35,13 @@ const Settings = () => {
                 <span className="text-white text-lg">🎨</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900">
-                Visual Appearance - Changed
+                Visual Appearance - update from commit 1
               </h3>
             </div>
             
             <div className="space-y-6">
               <div>
-                <label className="text-sm font-medium text-gray-900">Theme</label>
+                <label className="text-sm font-medium text-gray-900">Theme - update from commit 1</label>
                 <p className="text-sm text-gray-500 mb-4">Choose your preferred color scheme.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {themes.map((theme, index) => (

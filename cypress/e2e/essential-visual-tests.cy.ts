@@ -31,39 +31,39 @@ describe('Visual Regression Tests - Essential Screenshots', () => {
     cy.percySnapshot('05-Settings-Config');
   });
 
-//   it('6. Navigation - Active States', () => {
-//     cy.visit('/');
-//     // Test navigation with active state
-//     cy.get('[data-testid="nav-users"]').click();
-//     cy.url().should('include', '/users');
-//     cy.percySnapshot('06-Navigation-Active');
-//   });
+  it('6. Navigation - Active States', () => {
+    cy.visit('/');
+    // Test navigation with active state
+    cy.get('[data-testid="nav-users"]').click();
+    cy.url().should('include', '/users');
+    cy.percySnapshot('06-Navigation-Active');
+  });
 
-//   it('7. Dashboard - Charts Section', () => {
-//     cy.visit('/dashboard');
-//     cy.get('[data-testid="chart-revenue"]').should('be.visible');
-//     cy.get('[data-testid="chart-revenue"]').scrollIntoView();
-//     cy.percySnapshot('07-Dashboard-Charts');
-//   });
+  it('7. Dashboard - Charts Section', () => {
+    cy.visit('/dashboard');
+    cy.get('[data-testid="chart-revenue"]').should('be.visible');
+    cy.get('[data-testid="chart-revenue"]').scrollIntoView();
+    cy.percySnapshot('07-Dashboard-Charts');
+  });
 
-//   it('8. Users - Status Variations', () => {
-//     cy.visit('/users');
-//     cy.get('[data-testid="user-status-1"]').should('be.visible');
-//     cy.get('[data-testid="user-status-3"]').should('be.visible');
-//     cy.percySnapshot('08-Users-Status');
-//   });
+  it('8. Users - Status Variations', () => {
+    cy.visit('/users');
+    cy.get('[data-testid="user-status-1"]').should('be.visible');
+    cy.get('[data-testid="user-status-3"]').should('be.visible');
+    cy.percySnapshot('08-Users-Status');
+  });
 
-//   it('9. Profile - Form Section', () => {
-//     cy.visit('/profile');
-//     cy.get('[data-testid="profile-form"]').should('be.visible');
-//     cy.get('[data-testid="profile-form"]').scrollIntoView();
-//     cy.percySnapshot('09-Profile-Form');
-//   });
+  it('9. Profile - Form Section', () => {
+    cy.visit('/profile');
+    cy.get('[data-testid="profile-form"]').should('be.visible');
+    cy.get('[data-testid="profile-form"]').scrollIntoView();
+    cy.percySnapshot('09-Profile-Form');
+  });
 
-//   it('10. Settings - Preferences', () => {
-//     cy.visit('/settings');
-//     cy.get('[data-testid="theme-settings"]').should('be.visible');
-//     cy.get('[data-testid="theme-settings"]').scrollIntoView();
-//     cy.percySnapshot('10-Settings-Preferences');
-//   });
+  it('10. Settings - Preferences', () => {
+    cy.visit('/settings');
+    cy.get('[data-testid="theme-settings"]').should('be.visible');
+    cy.get('[data-testid="theme-settings"]').scrollIntoView();
+    cy.percySnapshot('10-Settings-Preferences');
+  });
 });
