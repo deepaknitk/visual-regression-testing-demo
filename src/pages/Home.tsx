@@ -9,7 +9,7 @@ const Home = () => {
         <div className="text-center">
           <div className="mb-4">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-200" data-testid="build-status">
-              ✅ New Commit on Top of Approved Build
+              ✅ New Commit on Top of Approved Build -- New feature branch commit 1
             </span>
           </div>
           <h1 className="text-5xl font-extrabold text-gradient bg-gradient-to-r from-purple-900 to-pink-600 bg-clip-text text-transparent sm:text-6xl" data-testid="home-title">

@@ -14,7 +14,7 @@ const Users = () => {
           <div className="sm:flex-auto">
             <h1 className="text-2xl font-semibold text-indigo-900" data-testid="users-title">👥 Team Members - update from commit 1</h1>
             <p className="mt-2 text-sm text-indigo-600" data-testid="users-description">
-              Manage your team members, roles, and access permissions with ease - update from commit 1.
+              Manage your team members, roles, and access permissions with ease - New feature branch commit 1
             </p>
           </div>
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
