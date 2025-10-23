@@ -41,8 +41,8 @@ describe('Visual Regression Tests - Essential Screenshots', () => {
 
   it('7. Dashboard - Charts Section', () => {
     cy.visit('/dashboard');
-    cy.get('[data-testid="chart-revenue"]').should('be.visible');
-    cy.get('[data-testid="chart-revenue"]').scrollIntoView();
+    cy.get('[data-testid="chart-container"]').should('be.visible');
+    cy.get('[data-testid="chart-container"]').scrollIntoView();
     cy.percySnapshot('07-Dashboard-Charts');
   });
 
@@ -62,8 +62,8 @@ describe('Visual Regression Tests - Essential Screenshots', () => {
 
   it('10. Settings - Preferences', () => {
     cy.visit('/settings');
-    cy.get('[data-testid="theme-settings"]').should('be.visible');
-    cy.get('[data-testid="theme-settings"]').scrollIntoView();
+    cy.get('[data-testid="theme-option-0"]').should('be.visible');
+    cy.get('[data-testid="theme-option-0"]').scrollIntoView();
     cy.percySnapshot('10-Settings-Preferences');
   });
 });
