@@ -1,7 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { getEnvironmentConfig } from '../config/environment';
 
 const Navigation = () => {
   const location = useLocation();
+  const config = getEnvironmentConfig();
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -12,12 +14,14 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-blue-600 shadow-lg">
+    <nav className={`${config.theme.primary} shadow-lg`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-white text-xl font-bold">Visual Test App - update from commit 1</h1>
+              <h1 className="text-white text-xl font-bold">
+                {config.branding.logo} {config.branding.title}
+              </h1>
             </div>
           </div>
           <div className="hidden md:block">
@@ -28,8 +32,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'bg-blue-700 text-white'
-                      : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                      ? `${config.theme.primary === 'bg-blue-600' ? 'bg-blue-700' : 'bg-green-700'} text-white`
+                      : `${config.theme.primary === 'bg-blue-600' ? 'text-blue-100 hover:bg-blue-500' : 'text-green-100 hover:bg-green-500'} hover:text-white`
                   }`}
                   data-testid={`nav-${item.label.toLowerCase()}`}
                 >

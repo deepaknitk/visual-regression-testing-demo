@@ -1,6 +1,9 @@
+import { getEnvironmentConfig } from '../config/environment';
+
 // Home Page Component - Main landing page for visual regression testing demo
 // This component showcases various UI elements and states for Percy testing
 const Home = () => {
+  const config = getEnvironmentConfig();
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Main container with responsive padding */}
@@ -8,12 +11,12 @@ const Home = () => {
         {/* Hero section with centered content */}
         <div className="text-center">
           <div className="mb-4">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-200" data-testid="build-status">
-              ✅ New Commit on Top of Approved Build -- New feature branch commit 1
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-200" data-testid="build-status">
+              {config.branding.logo} {config.name} Environment
             </span>
           </div>
           <h1 className="text-5xl font-extrabold text-gradient bg-gradient-to-r from-purple-900 to-pink-600 bg-clip-text text-transparent sm:text-6xl" data-testid="home-title">
-            🚀 Welcome to Visual Regression Demo v2.1 - update from commit 1
+            🚀 Welcome to {config.branding.title}
           </h1>
           <p className="mt-6 text-2xl text-purple-600 font-medium" data-testid="home-description">
             ✨ Experience the power of automated visual testing with Percy, Cypress, and React

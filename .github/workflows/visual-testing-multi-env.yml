@@ -1,0 +1,62 @@
+name: Visual Regression Testing - Multi Environment
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  visual-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [cloud, onprem]
+        
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Configure npm for stability
+        run: |
+          npm config set fund false
+          npm config set audit-level moderate
+
+      - name: Clean and install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+          
+      - name: Verify Rollup installation
+        run: |
+          npm list rollup || npm install rollup --force
+
+      - name: Build application for ${{ matrix.environment }}
+        run: npm run build
+        env:
+          VITE_ENVIRONMENT: ${{ matrix.environment }}
+
+      - name: Start application
+        run: npm run preview &
+        env:
+          CI: true
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:4173 --timeout 60000
+
+      - name: Run Cypress tests with Percy - ${{ matrix.environment }}
+        run: npx percy exec -- npx cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: ${{ github.head_ref || github.ref_name }}-${{ matrix.environment }}
+          PERCY_TARGET_BRANCH: main-${{ matrix.environment }}
+          PERCY_COMMIT: ${{ github.sha }}
+          PERCY_PULL_REQUEST: ${{ github.event.number }}
+          VITE_ENVIRONMENT: ${{ matrix.environment }}
+          CYPRESS_baseUrl: http://localhost:4173
