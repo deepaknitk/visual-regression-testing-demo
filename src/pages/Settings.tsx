@@ -17,13 +17,13 @@ const Settings = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-medium mb-4">
-            ⚙️ Configuration Center
+            Configuration Center from
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent" data-testid="settings-title">
-            Advanced Settings - update from commit 1
+            Advanced Settings - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Edition
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="settings-description">
-            🎨 Personalize your experience with our comprehensive configuration options
+            🎨 Personalize your {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} experience with our comprehensive configuration options
           </p>
         </div>
 

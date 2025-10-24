@@ -9,13 +9,13 @@ const Profile = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-medium mb-4">
-            👤 User Profile Hub
+           New feature branch commit 1
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent" data-testid="profile-title">
-            My Profile Dashboard - update from commit 3
+            My Profile Dashboard - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Edition
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="profile-description">
-            🌟 Customize your personal information and account preferences with style
+            🌟 Customize your personal information and account preferences with {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} style
           </p>
         </div>
 

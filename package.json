@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:cloud": "VITE_ENVIRONMENT=cloud vite", 
+    "dev:onprem": "VITE_ENVIRONMENT=onprem vite",
     "build": "tsc -b && vite build",
+    "build:cloud": "VITE_ENVIRONMENT=cloud tsc -b && vite build",
+    "build:onprem": "VITE_ENVIRONMENT=onprem tsc -b && vite build", 
     "lint": "eslint .",
     "preview": "vite preview",
     "cypress:open": "cypress open",
@@ -13,6 +17,8 @@
     "test:visual": "percy exec -- cypress run",
     "test:visual:open": "percy exec -- cypress open",
     "test:visual:optimized": "percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
+    "test:visual:cloud": "VITE_ENVIRONMENT=cloud percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
+    "test:visual:onprem": "VITE_ENVIRONMENT=onprem percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
     "test:dev": "./test-visual.sh dev",
     "test:prod": "./test-visual.sh prod",
     "test:cypress": "./test-visual.sh cypress-only"

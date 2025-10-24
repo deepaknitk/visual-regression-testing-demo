@@ -14,11 +14,11 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-gray-900" data-testid="dashboard-title">
-            Dashboard
+                    <h1 className="text-2xl font-semibold text-gray-900" data-testid="dashboard-title">
+            Dashboard - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Environment
           </h1>
           <p className="mt-2 text-sm text-gray-700" data-testid="dashboard-description">
-            Overview of your application metrics and user activity.
+            Overview of your {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} application metrics and user activity.
           </p>
         </div>
 
@@ -105,8 +105,8 @@ const Dashboard = () => {
           {/* Chart Visualization */}
           <div className="bg-white overflow-hidden shadow rounded-lg" data-testid="chart-container">
             <div className="p-6">
-              <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
-                User Growth Trend
+                            <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
+                User Growth Trend - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Analytics
               </h3>
               <div className="space-y-3">
                 {chartData.map((data, index) => (
