@@ -20,10 +20,10 @@ const Settings = () => {
             Configuration Center from
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent" data-testid="settings-title">
-            Advanced Settings - update from commit 1
+            Advanced Settings - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Edition
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="settings-description">
-            🎨 Personalize your experience with our comprehensive configuration options
+            🎨 Personalize your {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} experience with our comprehensive configuration options
           </p>
         </div>
 

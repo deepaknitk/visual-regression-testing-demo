@@ -12,10 +12,10 @@ const Profile = () => {
            New feature branch commit 1
           </div>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent" data-testid="profile-title">
-            My Profile Dashboard - New feature branch commit 1
+            My Profile Dashboard - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Edition
           </h1>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto" data-testid="profile-description">
-            🌟 Customize your personal information and account preferences with style
+            🌟 Customize your personal information and account preferences with {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} style
           </p>
         </div>
 

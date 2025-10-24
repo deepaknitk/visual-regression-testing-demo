@@ -3,6 +3,12 @@ describe('Visual Regression Tests - Essential Screenshots', () => {
   const environment = Cypress.env('VITE_ENVIRONMENT') || 'cloud';
   const envPrefix = environment.charAt(0).toUpperCase() + environment.slice(1);
   
+  before(() => {
+    // Log environment for debugging
+    cy.log(`Running tests for environment: ${environment}`);
+    cy.log(`Snapshot prefix will be: ${envPrefix}`);
+  });
+  
   it('1. Home Page - Landing View', () => {
     cy.visit('/');
     cy.get('[data-testid="home-title"]').should('be.visible');
