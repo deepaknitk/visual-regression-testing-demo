@@ -53,7 +53,7 @@ jobs:
         run: npx wait-on http://localhost:4173 --timeout 60000
 
       - name: Run Cypress tests with Percy - ${{ matrix.environment }}
-        run: npx percy exec --config percy.${{ matrix.environment }}.config.js -- npx cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts' --env VITE_ENVIRONMENT=${{ matrix.environment }}
+        run: npx percy exec --config percy.${{ matrix.environment }}.yml -- npx cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts' --env VITE_ENVIRONMENT=${{ matrix.environment }}
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: ${{ github.head_ref || github.ref_name }}
