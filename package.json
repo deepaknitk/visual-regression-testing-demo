@@ -17,11 +17,8 @@
     "test:visual": "percy exec -- cypress run",
     "test:visual:open": "percy exec -- cypress open",
     "test:visual:optimized": "percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
-    "test:visual:cloud": "VITE_ENVIRONMENT=cloud percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
-    "test:visual:onprem": "VITE_ENVIRONMENT=onprem percy exec -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts'",
-    "test:dev": "./test-visual.sh dev",
-    "test:prod": "./test-visual.sh prod",
-    "test:cypress": "./test-visual.sh cypress-only"
+    "test:visual:cloud": "VITE_ENVIRONMENT=cloud percy exec --config percy.cloud.yml -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts' --env VITE_ENVIRONMENT=cloud",
+    "test:visual:onprem": "VITE_ENVIRONMENT=onprem percy exec --config percy.onprem.yml -- cypress run --spec 'cypress/e2e/essential-visual-tests.cy.ts' --env VITE_ENVIRONMENT=onprem"
   },
   "dependencies": {
     "react": "^18.2.0",
