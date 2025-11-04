@@ -17,6 +17,9 @@ const Users = () => {
             <p className="mt-2 text-sm text-indigo-600" data-testid="users-description">
               Manage your team members, roles, and access permissions with ease - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Edition
             </p>
+            <p className="mt-1 text-xs text-gray-500">
+              <span className="user-count">Total: {users.length} users</span> • <span className="current-time">Updated: {new Date().toLocaleTimeString()}</span>
+            </p>
           </div>
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <button
