@@ -4,9 +4,10 @@ snapshot:
   widths: [1440]  # Desktop-only: large desktop
   
   percy-css: |
-    /* Hide dynamic elements */
-    .loading-spinner { display: none !important; }
+    /* Hide dynamic content */
     .timestamp { display: none !important; }
+    .current-time { display: none !important; }
+    .user-count { display: none !important; }
     
     /* Disable animations */
     *, *::before, *::after {

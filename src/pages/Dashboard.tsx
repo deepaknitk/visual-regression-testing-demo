@@ -20,6 +20,9 @@ const Dashboard = () => {
           <p className="mt-2 text-sm text-gray-700" data-testid="dashboard-description">
             Overview of your {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} application metrics and user activity.
           </p>
+          <p className="mt-1 text-xs text-gray-500 current-time">
+            Last updated: {new Date().toLocaleString()}
+          </p>
         </div>
 
         {/* Stats Grid */}
@@ -54,7 +57,7 @@ const Dashboard = () => {
                 <div className="ml-5 w-0 flex-1">
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">Active Users</dt>
-                    <dd className="text-2xl font-bold text-gray-900">{dashboardStats.activeUsers.toLocaleString()}</dd>
+                    <dd className="text-2xl font-bold text-gray-900 user-count">{dashboardStats.activeUsers.toLocaleString()}</dd>
                     <dd className="text-sm text-green-600">+8% from last month</dd>
                   </dl>
                 </div>
@@ -150,7 +153,7 @@ const Dashboard = () => {
                         {user.name}
                       </p>
                       <p className="text-sm text-gray-500">
-                        Updated profile • {Math.floor(Math.random() * 60) + 1}m ago
+                        Updated profile • <span className="timestamp">{Math.floor(Math.random() * 60) + 1}m ago</span>
                       </p>
                     </div>
                     <div className="flex-shrink-0">
