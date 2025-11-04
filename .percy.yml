@@ -1,0 +1,26 @@
+version: 2
+
+snapshot:
+  widths: [1280]  # Default single width
+  
+  percy-css: |
+    /* Hide dynamic elements */
+    .loading-spinner { display: none !important; }
+    .timestamp { display: none !important; }
+    
+    /* Disable animations */
+    *, *::before, *::after {
+      animation-duration: 0s !important;
+      transition-duration: 0s !important;
+    }
+
+overrides:
+  # Cloud - Responsive testing
+  - environment: "cloud"
+    snapshot:
+      widths: [375, 768, 1280]  # Mobile, tablet, desktop
+  
+  # OnPrem - Desktop only
+  - environment: "onprem"
+    snapshot:
+      widths: [1280, 1440]  # Desktop and large desktop
