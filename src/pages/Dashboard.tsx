@@ -1,6 +1,8 @@
 import { dashboardStats, users } from '../data/users';
 
 const Dashboard = () => {
+  // Chart data for user growth visualization - updated for Percy test
+  // This comment change should NOT cause visual regression failures
   const chartData = [
     { month: 'Jan', users: 120 },
     { month: 'Feb', users: 150 },
