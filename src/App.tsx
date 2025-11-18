@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import './App.css'
 
+// TEST
 function App() {
   return (
     <Router>

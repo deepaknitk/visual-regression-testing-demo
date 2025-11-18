@@ -1,6 +1,8 @@
 import { dashboardStats, users } from '../data/users';
 
 const Dashboard = () => {
+  // Chart data for user growth visualization - updated for Percy test
+  // This comment change should NOT cause visual regression failures
   const chartData = [
     { month: 'Jan', users: 120 },
     { month: 'Feb', users: 150 },
@@ -15,7 +17,7 @@ const Dashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
                     <h1 className="text-2xl font-semibold text-gray-900" data-testid="dashboard-title">
-            Dashboard - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Environment
+               2324 4432424243242 - {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} Environment
           </h1>
           <p className="mt-2 text-sm text-gray-700" data-testid="dashboard-description">
             Overview of your {(import.meta.env.VITE_ENVIRONMENT || 'cloud').toUpperCase()} application metrics and user activity.

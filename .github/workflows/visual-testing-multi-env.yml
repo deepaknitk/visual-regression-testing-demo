@@ -58,7 +58,7 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: ${{ github.head_ref || github.ref_name }}
           PERCY_TARGET_BRANCH: main
-          PERCY_COMMIT: ${{ github.sha }}
+         # PERCY_COMMIT: ${{ github.sha }}
           PERCY_PULL_REQUEST: ${{ github.event.number }}
           PERCY_PARALLEL_NONCE: ${{ github.run_id }}
           PERCY_PARALLEL_TOTAL: 2

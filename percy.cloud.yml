@@ -4,7 +4,12 @@ snapshot:
   widths: [375, 768, 1280]  # Responsive: mobile, tablet, desktop
   
   percy-css: |
-    /* Hide dynamic content */
+    /* === BROWSERSTACK SOLUTION: Fix full-page screenshots === */
+    html, body {
+      overflow: unset !important;
+    }
+    
+    /* === Hide dynamic content === */
     .timestamp { display: none !important; }
     .current-time { display: none !important; }
     .user-count { display: none !important; }
