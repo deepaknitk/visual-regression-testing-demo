@@ -7,13 +7,44 @@ on:
     branches: [main, master]
 
 jobs:
+  # Determine which environments to test
+  check-environments:
+    runs-on: ubuntu-latest
+    outputs:
+      environments: ${{ steps.check.outputs.environments }}
+    steps:
+      - name: Determine environments to test
+        id: check
+        run: |
+          # Always test onprem (mandatory)
+          ENVIRONMENTS='["onprem"]'
+          
+          # For main branch pushes, always test both environments
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            ENVIRONMENTS='["onprem", "cloud"]'
+            echo "Main branch - testing both environments"
+          else
+            # For PRs, check if cloud testing is requested
+            PR_BODY="${{ github.event.pull_request.body }}"
+            if echo "$PR_BODY" | grep -q "\- \[x\] ☁️ \*\*Cloud\*\*"; then
+              ENVIRONMENTS='["onprem", "cloud"]'
+              echo "Cloud testing requested in PR"
+            else
+              echo "Only onprem testing (cloud not requested in PR)"
+            fi
+          fi
+          
+          echo "environments=$ENVIRONMENTS" >> $GITHUB_OUTPUT
+          echo "Testing environments: $ENVIRONMENTS"
+
   visual-tests:
     runs-on: ubuntu-latest
     name: Visual Tests - ${{ matrix.environment }}
+    needs: check-environments
     strategy:
       fail-fast: false
       matrix:
-        environment: [cloud, onprem]
+        environment: ${{ fromJson(needs.check-environments.outputs.environments) }}
         
     steps:
       - name: Checkout repository
