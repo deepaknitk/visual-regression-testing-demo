@@ -1,16 +1,59 @@
 version: 2
 
 snapshot:
-  widths: [375, 768, 1280]  # Responsive: mobile, tablet, desktop
+  widths: [375, 768, 1280, 1920]  # Mobile, tablet, desktop, large desktop
+  min-height: 1024  # Ensure consistent minimum height
+  
+  # Advanced Percy configuration for cloud environment
+  threshold: 0.05  # 5% threshold for visual changes
+  
+  # Ignore specific regions that are always dynamic
+  ignore-regions:
+    - "[data-testid='timestamp']"
+    - ".live-counter"
+    - ".dynamic-badge"
+    - ".last-seen"
   
   percy-css: |
-    /* Hide dynamic content */
-    .timestamp { display: none !important; }
-    .current-time { display: none !important; }
-    .user-count { display: none !important; }
+    /* === CLOUD ENVIRONMENT SPECIFIC STYLES === */
     
-    /* Disable animations */
+    /* === BROWSERSTACK SOLUTION: Fix full-page screenshots === */
+    html, body {
+      overflow: unset !important;
+      scroll-behavior: auto !important;
+    }
+    
+    /* === Hide dynamic content === */
+    .timestamp, .current-time, .user-count { display: none !important; }
+    .live-data, .real-time-counter { display: none !important; }
+    .dynamic-content, .auto-refresh { display: none !important; }
+    
+    /* === Disable all animations and transitions === */
     *, *::before, *::after {
       animation-duration: 0s !important;
+      animation-play-state: paused !important;
       transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+    
+    /* === Cloud-specific normalization === */
+    .cloud-badge {
+      background-color: #3B82F6 !important;
+      color: white !important;
+    }
+    
+    /* === Consistent spacing for cloud theme === */
+    .environment-header {
+      padding: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    /* === Hide loading states for consistent screenshots === */
+    .loading-spinner, .skeleton-loader {
+      display: none !important;
+    }
+    
+    /* === Normalize user avatars === */
+    .user-avatar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     }

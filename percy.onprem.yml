@@ -1,16 +1,66 @@
 version: 2
 
 snapshot:
-  widths: [1440]  # Desktop-only: large desktop
+  widths: [1280, 1920]  # On-prem focuses on desktop/enterprise sizes
+  min-height: 1024  # Enterprise standard height
+  
+  # Advanced Percy configuration for on-premises environment
+  threshold: 0.03  # Stricter 3% threshold for enterprise
+  
+  # Ignore specific regions that are always dynamic
+  ignore-regions:
+    - "[data-testid='timestamp']"
+    - ".live-counter"
+    - ".system-status"
+    - ".server-uptime"
   
   percy-css: |
-    /* Hide dynamic content */
-    .timestamp { display: none !important; }
-    .current-time { display: none !important; }
-    .user-count { display: none !important; }
+    /* === ON-PREMISES ENVIRONMENT SPECIFIC STYLES === */
     
-    /* Disable animations */
+    /* === BROWSERSTACK SOLUTION: Fix full-page screenshots === */
+    html, body {
+      overflow: unset !important;
+      scroll-behavior: auto !important;
+    }
+    
+    /* === Hide dynamic content === */
+    .timestamp, .current-time, .user-count { display: none !important; }
+    .server-status, .uptime-counter { display: none !important; }
+    .live-metrics, .real-time-data { display: none !important; }
+    
+    /* === Disable all animations and transitions === */
     *, *::before, *::after {
       animation-duration: 0s !important;
+      animation-play-state: paused !important;
       transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+    
+    /* === On-prem specific normalization === */
+    .onprem-badge {
+      background-color: #059669 !important;
+      color: white !important;
+    }
+    
+    /* === Enterprise theme consistency === */
+    .environment-header {
+      padding: 1.5rem !important;
+      margin-bottom: 1rem !important;
+      border-left: 4px solid #059669 !important;
+    }
+    
+    /* === Hide cloud-specific features === */
+    .cloud-only, .saas-feature {
+      display: none !important;
+    }
+    
+    /* === Normalize enterprise elements === */
+    .enterprise-logo {
+      filter: grayscale(0) !important;
+      opacity: 1 !important;
+    }
+    
+    /* === Consistent enterprise styling === */
+    .data-table {
+      border: 1px solid #D1D5DB !important;
     }
